@@ -1,0 +1,3 @@
+1. Edit connect.php File (used your database info)
+2. create database and mast used this name name: id19609926_dbname
+3. Then import this .sql file

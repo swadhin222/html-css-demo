@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Website Counter</title>
+    <style>#up-arrow,#down-arrow{
+        width: 100px;
+        height: 100px;
+      }
+      #total-count{
+        font-weight: 900;
+        font-size: 70px;
+      }
+      .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="increment-count">
+          <button id="up-arrow"> + </button>
+        </div>
+        <div id="total-count">
+        </div>
+        <div id="decrement-count">
+          <button id="down-arrow"> - </button>
+        </div>
+    </div>
+</body>
+  <script>
+// Select increment and decrement buttons
+const incrementCount = document.getElementById("increment-count");
+const decrementCount = document.getElementById("decrement-count");
+
+// Select total count
+const totalCount = document.getElementById("total-count");
+
+// Variable to track count
+var count = 0;
+
+// Display initial count value
+totalCount.innerHTML = count;
+
+// Function to increment count
+const handleIncrement = () => {
+  count++;
+  totalCount.innerHTML = count;
+};
+
+// Function to decrement count
+const handleDecrement = () => {
+  count--;
+  totalCount.innerHTML = count;
+};
+
+// Add click event to buttons
+incrementCount.addEventListener("click", handleIncrement);
+decrementCount.addEventListener("click", handleDecrement);
+  </script>
+</html>
