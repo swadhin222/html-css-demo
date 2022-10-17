@@ -1,0 +1,60 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .pp {
+            text-align: center;
+            font-size: 27px;
+            margin-top: 0px;
+            background: #fff;
+            color: red;
+            padding: 20px 5px;
+            margin: 0px 10px;
+            border-radius: 5px;
+        }
+        
+        .fpage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            background: #28272a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fpage">
+        <p id="demo" class="pp"></p>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Nov 17, 2022 01:36:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = "<b>RSP Raima Facebook account will be deleted</b> <br><br>" + days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "<div style='color:green;'><b>RSP Raima Facebook account has been permanently deleted!!</b></div>";
+            }
+        }, 1000);
+    </script>
+
+</body>
