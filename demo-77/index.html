@@ -1,0 +1,156 @@
+<head>
+    <style>
+        .allbutton{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            background-color: rgb(255, 174, 0);
+        }
+        .tc{
+            background-color: white;
+            display:inline-block;
+            padding: 0px 20px;
+            border-radius: 10px;
+        }
+        .tct{
+            font-weight: 900;
+            font-family: roboto;
+            text-transform: uppercase;
+        } 
+        .tcr{
+            font-family: roboto;
+            font-size: 20px;
+            margin-top: -10px;
+            margin-bottom: 5px;
+        }
+        .arb{
+            background-color: orange;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 5px 5px 0px 0px;
+            
+        }
+        .bs{
+            padding: 10px;
+            width: 60px;
+            border: none;
+            margin: 3px;
+            font-size: medium;
+            font-weight: 900;
+            border-radius: 5px;
+        }
+        .rbs{
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 270px;
+            background-color: antiquewhite;
+            border: none;
+        }
+    </style>
+</head>
+<div class="allbutton">
+<div class="tc">
+    <p class="tct">Total Count</p>
+    <p class="tcr" id="total-count">0</p>
+    <button id="refreshButton" class="arb">All Reset</button>
+</div>
+<hr>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">কৃষ্ণ</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">কৃষ্ণ</button><br>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">কৃষ্ণ</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">কৃষ্ণ</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button><br>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">রাম</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">রাম</button><br>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">রাম</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">রাম</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<button class="myButton bs" style="background-color: rgba(231, 90, 9, 0.3);">হরে</button>
+<br>
+    <div style="text-align: center;">
+        <button class="rbs resetButton" id="increment-count">Increment Count</button><br>
+        <button class="rbs resetButton" id="decrement-count">Decrement Count</button>
+    </div>
+</div>
+
+<script>
+  let buttons = document.querySelectorAll(".myButton");
+  let resetButton = document.querySelector(".resetButton");
+  let defaultColor = "rgba(231, 90, 9, 0.3)";
+  let newColor = "rgb(231, 91, 9)";
+  
+  //binding event listener to each button
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function() {
+      if (this.style.backgroundColor === defaultColor) {
+        this.style.backgroundColor = newColor;
+      } else {
+        this.style.backgroundColor = defaultColor;
+      }
+    });
+  }
+  
+  //binding event listener to reset button
+  resetButton.addEventListener("click", function() {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].style.backgroundColor = defaultColor;
+    }
+  });
+</script>
+
+<div>
+    <div class="container">
+        <div sddsdssdsdsdsd>
+          <button id="up-arrow"> + </button>
+        </div>
+        <div xxxxxcc>
+        </div>
+        <div dddddddd>
+          <button id="down-arrow"> - </button>
+        </div>
+    </div>
+</div>
+  <script>
+// Select increment and decrement buttons
+const incrementCount = document.getElementById("increment-count");
+const decrementCount = document.getElementById("decrement-count");
+
+// Select total count
+const totalCount = document.getElementById("total-count");
+
+// Variable to track count
+var count = 0;
+
+// Display initial count value
+totalCount.innerHTML = count;
+
+// Function to increment count
+const handleIncrement = () => {
+  count++;
+  totalCount.innerHTML = count;
+};
+
+// Function to decrement count
+const handleDecrement = () => {
+  count--;
+  totalCount.innerHTML = count;
+};
+
+// Add click event to buttons
+incrementCount.addEventListener("click", handleIncrement);
+decrementCount.addEventListener("click", handleDecrement);
+  </script>
+
+<script>
+  let refreshButton = document.querySelector("#refreshButton");
+  refreshButton.addEventListener("click", function() {
+    location.reload();
+  });
+</script>
