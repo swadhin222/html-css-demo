@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div>
+            <p id="outvalu">100</p>
+            <p id="demo">100</p>
+            <p id="result"></p>
+            <!--<p id="myP">5</p>-->
+            <p id="myPp">10</p>
+            <h1 id="myH1" style="display: none;">This is an h1 element</h1>
+        </div>
+        
+        <script>
+            //let a = 10;
+            //let myP = document.getElementById("myP");
+            //let result = Number(myP.textContent) + a;
+           // myP.innerHTML = result;
+
+            let dv = document.getElementById("outvalu");
+            let dc = document.getElementById("demo");
+            let rs = document.getElementById("result");
+            let result = Number(dv.textContent) + Number(dc.textContent);
+            rs.innerHTML = result;
+        </script>
+        <script>
+            let myPp = document.getElementById("myPp");
+            let myH1 = document.getElementById("myH1");
+            if (Number(myPp.textContent) === 10) {
+                myH1.style.display = "block";
+            }
+        </script>
+    </body>
+</html>

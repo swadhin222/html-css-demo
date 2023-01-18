@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Age Calculator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <style>
+    @media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1320px;
+    }
+  }
+  .result h2{
+    display: inline;
+  }
+  input{
+    outline: none;
+    box-shadow: none;
+  }
+  /*Bootstrap Calendar*/
+    .datepicker {
+        border-radius: 0;
+        padding: 0;
+    }
+    .datepicker-days table thead, .datepicker-days table tbody, .datepicker-days table tfoot {
+        padding: 10px;
+        display: list-item;
+    }
+    .datepicker-days table thead, .datepicker-months table thead, .datepicker-years table thead, .datepicker-decades table thead, .datepicker-centuries table thead {
+        background: #3546b3;
+        color: #ffffff;
+        border-radius: 0;
+    }
+    .datepicker-days table thead tr:nth-child(2n+0) td, .datepicker-days table thead tr:nth-child(2n+0) th {
+        border-radius: 3px;
+    }
+    .datepicker-days table thead tr:nth-child(3n+0) {
+        text-transform: uppercase;
+        font-weight: 300 !important;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+        padding: 11px 13px;
+    }
+    .datepicker-months table thead td, .datepicker-months table thead th, .datepicker-years table thead td, .datepicker-years table thead th, .datepicker-decades table thead td, .datepicker-decades table thead th, .datepicker-centuries table thead td, .datepicker-centuries table thead th {
+        border-radius: 0;
+    }
+    .datepicker td, .datepicker th {
+        border-radius: 50%;
+        padding: 0 12px;
+    }
+    .datepicker-days table thead, .datepicker-months table thead, .datepicker-years table thead, .datepicker-decades table thead, .datepicker-centuries table thead {
+        background: #3546b3;
+        color: #ffffff;
+        border-radius: 0;
+    }
+    .datepicker table tr td.active, .datepicker table tr td.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover {
+        background-image: none;
+    }
+    .datepicker .prev, .datepicker .next {
+        color: rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+        width: 37px;
+        height: 37px;
+    }
+    .datepicker .prev:hover, .datepicker .next:hover {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.99);
+        font-size: 21px;
+    }
+    .datepicker .datepicker-switch {
+        font-size: 24px;
+        font-weight: 400;
+        transition: 0.3s;
+    }
+    .datepicker .datepicker-switch:hover {
+        color: rgba(255, 255, 255, 0.7);
+        background: transparent;
+    }
+    .datepicker table tr td span {
+        border-radius: 2px;
+        margin: 3%;
+        width: 27%;
+    }
+    .datepicker table tr td span.active, .datepicker table tr td span.active:hover, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover {
+      background-color: #3546b3;
+      background-image: none;
+    }
+    .dropdown-menu {
+        border: 1px solid rgba(0,0,0,.1);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    }
+    .datepicker-dropdown.datepicker-orient-top:before {
+        border-top: 7px solid rgba(0,0,0,.1);
+    }
+   
+   
+  </style>
+  <body>
+    
+    <div class="container mt-5">
+      <div class="row">
+        <did class="col"><input id="input1" type="text" class="form-control datefield" placeholder="your date of birth"></did>
+        <did class="col"><input id="input2" type="text" class="form-control datefield" placeholder="your date of birth"></did>
+        <did class="col"><input id="input3" type="text" class="form-control datefield" placeholder="your date of birth"></did>
+      </div>
+
+      
+      
+      
+
+      <center><!--<button id="result" class="btn btn-primary mt-3 mb-3">Calculate</button>--></center>
+      
+        <h2 class="yourAge"></h2>
+        <h2 class="yourAge2"></h2>
+        <h2 class="yourAge3"></h2>
+      
+    </div>
+   <!-- <script>
+      function calculateAge(birthDate){
+        let year = new Date().getFullYear();
+        let currentAge = year - birthDate;
+        if(birthDate > year){
+          return "Error";
+        }
+        else{
+          return currentAge;
+        }
+      }
+      $('.datepicker').datepicker().on('change',function(){
+        $('.myDate').change();
+      });
+      $( "#result" ).click(function(e) {
+      e.preventDefault();
+      let myDate = $('.myDate').datepicker('getDate').getFullYear();
+      let age = calculateAge(myDate);
+      
+      $('.result .yourAge').html("Your Age Is: ");
+      $('.result .error').html(age);
+      });
+    </script>-->
+
+    <!--<script>
+      function getYourAge (x) {
+        let nowDate  = new Date().getFullYear();
+        let age = nowDate - x;
+        return age;
+      }
+      $('#result').click(function(e){
+        e.preventDefault();
+        let year = $('.myDate').datepicker('getDate').getFullYear();
+        let yourAge = getYourAge(year);
+        $('.result .yourAge').html("Your Age Is: ");
+        $('.result .error').html(yourAge);
+      });
+      
+    </script>-->
+    <!--<script>
+      function getAge(dateString) {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+      }
+    </script>-->
+    
+
+    <!--<script>
+     /**for(i = 0; i < 100; i++){
+       console.log(i);
+     }
+     abc = [0,1,2,3,4,5,6,7,8,9];
+     abc.forEach(item => {
+       console.log(item);
+     });**/
+     let asd = null;
+     switch(asd){
+      case true:
+        console.log('yes, its true');
+        break;
+      case false:
+        console.log('no, its false');
+        break;
+      default:
+        console.log('never work');
+     }
+    </script>-->
+
+
+    <!--<script>
+      let message = prompt('Please tell anything');
+      switch(message){
+        case 'how are you?':
+          alert('I am fine');
+          break;
+        case 'how old are you?':
+          alert('I just borned');
+          break;
+        default:
+          alert('I am not understanding you');
+      }
+    </script>-->
+
+    <!--<script>
+      var options = {
+        orientation: 'bottom',
+        autoclose: true,
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        clearBtn:true,
+      }
+      $('.myDate').datepicker(options);
+      function getAge(dateString) {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+      }
+      $('#result').click(function(e){
+        e.preventDefault();
+        var myDate = $('.myDate').datepicker('getDate');
+        var myAge = getAge(myDate);
+        $('.result .yourAge').html("Your Age Is: ");
+        $('.result .error').html(myAge);
+      });
+    </script>-->
+    <script>
+      $('.datefield').datepicker({
+        orientation: 'bottom',
+        autoclose: true,
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        clearBtn:true,
+      });
+
+      $('#input1').on('change', function(e){
+
+        e.preventDefault();
+
+        let inputClick = $(this).datepicker('getDate');
+
+        let showResult = calculateAge(inputClick);
+
+        $('.yourAge').html(showResult);
+
+      });
+
+      $('#input2').on('change', function(e){
+
+        e.preventDefault();
+
+        let inputClick = $(this).datepicker('getDate');
+
+        let showResult = calculateAge(inputClick);
+
+        $('.yourAge2').html(showResult);
+
+        });
+
+        $('#input3').on('change', function(e){
+
+          e.preventDefault();
+
+          let inputClick = $(this).datepicker('getDate');
+
+          let showResult = calculateAge(inputClick);
+
+          $('.yourAge3').html(showResult);
+
+          })
+
+     /** $('#result').click(function(e){
+        e.preventDefault();
+        
+        let inputClick = $('.datefield').datepicker('getDate');
+        let showResult = calculateAge(inputClick);
+        $('.yourAge').html(showResult);
+      });**/
+
+      function calculateAge(inputDate){
+
+        let nowDate = new Date();
+
+        let nowDay = nowDate.getDate();
+        let nowMonth = nowDate.getMonth() + 1;
+        let nowYear = nowDate.getFullYear();
+
+        let birthDay = inputDate.getDate();
+        let birthMonth = inputDate.getMonth() + 1;
+        let birthYear = inputDate.getFullYear();
+
+        if(nowDay < birthDay){
+          nowDay = nowDay + 30;
+          nowMonth = nowMonth - 1;
+        }
+        if(nowMonth < birthMonth){
+          nowMonth = nowMonth + 12;
+          nowYear = nowYear - 1;
+        }
+
+        let nowAge = nowYear - birthYear;
+        let ageMonth = nowMonth - birthMonth;
+        let ageDay = nowDay - birthDay;
+
+        let result = "Your Age is " +nowAge+ " Year, " +ageMonth+ " Month, " +ageDay+ " Days."
+
+        return result;
+      }
+
+
+
+
+      
+    </script>
+
+  </body>
+</html>

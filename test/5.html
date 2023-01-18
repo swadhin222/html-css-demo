@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <input id="inputA" type="number">
+        <input id="inputB" type="number">
+        <button id="myButton">Sum</button>
+        <p id="result"></p>
+        <h1 id="myH1" style="display: none;">This is an h1 element</h1>
+        
+
+<script>
+let myButton = document.getElementById("myButton");
+let inputA = document.getElementById("inputA");
+let inputB = document.getElementById("inputB");
+let resultP = document.getElementById("result");
+
+myButton.addEventListener("click", function() {
+    let a = Number(inputA.value);
+    let b = Number(inputB.value);
+    let sum = a + b;
+    resultP.innerHTML = sum;
+    if (sum >= 10) {
+        myH1.style.display = "block";
+    } else {
+        myH1.style.display = "none";
+    }
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
