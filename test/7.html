@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                border: none;
+            }
+            #navbar-iframe-container {
+             display: none;
+            }
+            iframe{
+                overflow: hidden;
+                border-color: #dc3545;
+            }
+            iframe#myframe .block-me {
+             display: none;
+            }
+        </style>
+    </head>
+    <body>
+<div style="height: 100vh;"> 
+    <iframe src="https://nextbrawlpass.blogspot.com/" height="100%" width="100%" title="Iframe Example" ></iframe>
+</div>
+    </body>
+    <script>
+        var iframe = document.getElementById("myframe");
+        var p = iframe.contentDocument.getElementsByClassName("change-me")[0];
+        p.innerHTML = "This is the new text.";
+    </script>
+</html>

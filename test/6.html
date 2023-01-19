@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test 6</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+<button id="increment">+</button>
+<button id="decrement">-</button>
+<p id="count"></p>
+<script>
+let count = 0;
+
+document.getElementById("increment").addEventListener("click", function() {
+    count++;
+});
+
+document.getElementById("decrement").addEventListener("click", function() {
+    count--;
+});
+function displayCount() {
+    document.getElementById("count").innerHTML = count;
+}
+function saveCount() {
+    document.cookie = "count=" + count + "; expires=Thu, 18 Dec 2023 12:00:00 UTC";
+}
+ 
+        
+        </script>
+    </body>
+</html>
